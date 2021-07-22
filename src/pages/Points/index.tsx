@@ -4,7 +4,8 @@ import { Image, Alert } from 'react-native';
 import { Feather as Icon } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import Constants from 'expo-constants';
-import MapView, { Marker } from 'react-native-maps';
+import { Marker } from 'react-native-maps';
+import MapView from "react-native-map-clustering";
 import { SvgUri } from 'react-native-svg';
 import * as Location from 'expo-location';
 
@@ -36,7 +37,7 @@ const Points = () => {
 
   useEffect(() => {
     async function loadPosition() {
-      const { status } = await Location.requestPermissionsAsync();
+      const { status } = await Location.requestForegroundPermissionsAsync();
 
       if(status !== "granted") {
         Alert.alert('Oooops...', 'Precisamos de sua permissão para obter a localização');
