@@ -1,1 +1,4 @@
 /node_modules
+uploads/*.jpg
+uploads/*.png
+database.sqlite
